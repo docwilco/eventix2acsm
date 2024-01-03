@@ -1,0 +1,165 @@
+{
+  "Classes": [
+    {
+      "AvailableCars": [
+        "bmw_m3_e30_gra"
+      ],
+      "DriverPenalties": null,
+      "Entrants": {
+        "CAR_0": {
+          "Ballast": 0,
+          "CSPCarFlags": {
+            "allow_color_change": false,
+            "allow_immediate_refuel": false,
+            "allow_immediate_repair": false,
+            "allow_teleporting": false,
+            "block_joystick": false,
+            "block_keyboard": false,
+            "block_steering_wheel": false,
+            "force_headlights": false
+          },
+          "ClassID": "04fa86c7-eca3-49b3-93c7-0711385de78f",
+          "ConnectAsSpectator": false,
+          "FixedSetup": "",
+          "GUID": "123123123",
+          "InternalUUID": "54ae6f4f-5ba0-4c35-b8c1-73189d588d77",
+          "IsPlaceHolder": false,
+          "Model": "any_car_model",
+          "Name": "Test Driver 2",
+          "PitBox": 0,
+          "RaceNumber": 0,
+          "Restrictor": 0,
+          "Skin": "random_skin",
+          "SpectatorMode": 0,
+          "Team": ""
+        },
+        "CAR_1": {
+          "Ballast": 0,
+          "CSPCarFlags": {
+            "allow_color_change": false,
+            "allow_immediate_refuel": false,
+            "allow_immediate_repair": false,
+            "allow_teleporting": false,
+            "block_joystick": false,
+            "block_keyboard": false,
+            "block_steering_wheel": false,
+            "force_headlights": false
+          },
+          "ClassID": "04fa86c7-eca3-49b3-93c7-0711385de78f",
+          "ConnectAsSpectator": false,
+          "FixedSetup": "",
+          "GUID": "123456789",
+          "InternalUUID": "137a67bb-8779-43a4-9480-1014b70f2809",
+          "IsPlaceHolder": false,
+          "Model": "any_car_model",
+          "Name": "Test Driver",
+          "PitBox": 1,
+          "RaceNumber": 0,
+          "Restrictor": 0,
+          "Skin": "random_skin",
+          "SpectatorMode": 0,
+          "Team": ""
+        }
+      },
+      "ID": "04fa86c7-eca3-49b3-93c7-0711385de78f",
+      "Name": "BMW E30 Group A",
+      "Points": {
+        "BestLap": 0,
+        "CollisionWithDriver": 0,
+        "CollisionWithEnv": 0,
+        "CutTrack": 0,
+        "Places": [
+          25,
+          18,
+          15
+        ],
+        "PolePosition": 0,
+        "RequiredRaceTimePercentage": 0,
+        "SecondRaceMultiplier": 1
+      },
+      "TeamPenalties": null,
+      "UIColor": "#5085fa"
+    },
+    {
+      "AvailableCars": [
+        "ks_mazda_max5_racing"
+      ],
+      "DriverPenalties": null,
+      "Entrants": {
+        "CAR_0": {
+          "Ballast": 0,
+          "CSPCarFlags": {
+            "allow_color_change": false,
+            "allow_immediate_refuel": false,
+            "allow_immediate_repair": false,
+            "allow_teleporting": false,
+            "block_joystick": false,
+            "block_keyboard": false,
+            "block_steering_wheel": false,
+            "force_headlights": false
+          },
+          "ClassID": "4f42c379-9a7f-443c-957b-ddeb66a9d19e",
+          "ConnectAsSpectator": false,
+          "FixedSetup": "",
+          "GUID": "",
+          "InternalUUID": "e1b55145-fc29-4093-b862-0780a20746a6",
+          "IsPlaceHolder": false,
+          "Model": "ks_mazda_max5_racing",
+          "Name": "",
+          "PitBox": 2,
+          "RaceNumber": 0,
+          "Restrictor": 0,
+          "Skin": "Offline_Racing_RINALDO",
+          "SpectatorMode": 0,
+          "Team": ""
+        },
+        "CAR_1": {
+          "Ballast": 0,
+          "CSPCarFlags": {
+            "allow_color_change": false,
+            "allow_immediate_refuel": false,
+            "allow_immediate_repair": false,
+            "allow_teleporting": false,
+            "block_joystick": false,
+            "block_keyboard": false,
+            "block_steering_wheel": false,
+            "force_headlights": false
+          },
+          "ClassID": "4f42c379-9a7f-443c-957b-ddeb66a9d19e",
+          "ConnectAsSpectator": false,
+          "FixedSetup": "",
+          "GUID": "",
+          "InternalUUID": "e1e7bbc4-21f7-44cd-a454-e3ac8b915555",
+          "IsPlaceHolder": false,
+          "Model": "ks_mazda_max5_racing",
+          "Name": "",
+          "PitBox": 3,
+          "RaceNumber": 0,
+          "Restrictor": 0,
+          "Skin": "BRYAN",
+          "SpectatorMode": 0,
+          "Team": ""
+        }
+      },
+      "ID": "4f42c379-9a7f-443c-957b-ddeb66a9d19e",
+      "Name": "MX5",
+      "Points": {
+        "BestLap": 0,
+        "CollisionWithDriver": 0,
+        "CollisionWithEnv": 0,
+        "CutTrack": 0,
+        "Places": [
+          25,
+          18
+        ],
+        "PolePosition": 0,
+        "RequiredRaceTimePercentage": 0,
+        "SecondRaceMultiplier": 1
+      },
+      "TeamPenalties": null,
+      "UIColor": "#59b483"
+    }
+  ],
+  "Events": [],
+  "Name": "Test championship"
+}

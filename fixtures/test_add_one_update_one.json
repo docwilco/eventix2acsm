@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Test Driver",
+        "car": "bmw_m3_e30_gra",
+        "steam_id": 123456789
+    },
+    {
+        "name": "Test Driver 2",
+        "car": "bmw_m3_e30_gra",
+        "steam_id": 123123123
+    }
+]

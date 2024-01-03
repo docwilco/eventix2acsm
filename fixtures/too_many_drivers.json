@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Test Driver",
+        "car": "ks_mazda_max5_racing",
+        "steam_id": 123456789
+    },
+    {
+        "name": "Test Driver 2",
+        "car": "ks_mazda_max5_racing",
+        "steam_id": 987654321
+    },
+    {
+        "name": "Test Driver 3",
+        "car": "ks_mazda_max5_racing",
+        "steam_id": 873698732456
+    }
+]

@@ -1,0 +1,166 @@
+{
+    "Name": "Test championship",
+    "Classes": [
+        {
+            "ID": "04fa86c7-eca3-49b3-93c7-0711385de78f",
+            "Name": "BMW E30 Group A",
+            "Entrants": {
+                "CAR_0": {
+                    "InternalUUID": "54ae6f4f-5ba0-4c35-b8c1-73189d588d77",
+                    "PitBox": 0,
+                    "Name": "Always There",
+                    "Team": "",
+                    "GUID": "123123123",
+                    "Model": "any_car_model",
+                    "Skin": "random_skin",
+                    "RaceNumber": 0,
+                    "ClassID": "04fa86c7-eca3-49b3-93c7-0711385de78f",
+                    "Ballast": 0,
+                    "SpectatorMode": 0,
+                    "Restrictor": 0,
+                    "FixedSetup": "",
+                    "ConnectAsSpectator": false,
+                    "IsPlaceHolder": false,
+                    "CSPCarFlags": {
+                        "block_keyboard": false,
+                        "block_joystick": false,
+                        "block_steering_wheel": false,
+                        "force_headlights": false,
+                        "allow_color_change": false,
+                        "allow_teleporting": false,
+                        "allow_immediate_repair": false,
+                        "allow_immediate_refuel": false
+                    }
+                },
+                "CAR_1": {
+                    "InternalUUID": "137a67bb-8779-43a4-9480-1014b70f2809",
+                    "PitBox": 1,
+                    "Name": "",
+                    "Team": "",
+                    "GUID": "",
+                    "Model": "any_car_model",
+                    "Skin": "random_skin",
+                    "RaceNumber": 0,
+                    "ClassID": "04fa86c7-eca3-49b3-93c7-0711385de78f",
+                    "Ballast": 0,
+                    "SpectatorMode": 0,
+                    "Restrictor": 0,
+                    "FixedSetup": "",
+                    "ConnectAsSpectator": false,
+                    "IsPlaceHolder": false,
+                    "CSPCarFlags": {
+                        "block_keyboard": false,
+                        "block_joystick": false,
+                        "block_steering_wheel": false,
+                        "force_headlights": false,
+                        "allow_color_change": false,
+                        "allow_teleporting": false,
+                        "allow_immediate_repair": false,
+                        "allow_immediate_refuel": false
+                    }
+                }
+            },
+            "Points": {
+                "Places": [
+                    25,
+                    18,
+                    15
+                ],
+                "BestLap": 0,
+                "PolePosition": 0,
+                "CollisionWithDriver": 0,
+                "CollisionWithEnv": 0,
+                "CutTrack": 0,
+                "SecondRaceMultiplier": 1,
+                "RequiredRaceTimePercentage": 0
+            },
+            "AvailableCars": [
+                "bmw_m3_e30_gra"
+            ],
+            "DriverPenalties": null,
+            "TeamPenalties": null,
+            "UIColor": "#5085fa"
+        },
+        {
+            "ID": "4f42c379-9a7f-443c-957b-ddeb66a9d19e",
+            "Name": "MX5",
+            "Entrants": {
+                "CAR_0": {
+                    "InternalUUID": "e1b55145-fc29-4093-b862-0780a20746a6",
+                    "PitBox": 2,
+                    "Name": "",
+                    "Team": "",
+                    "GUID": "",
+                    "Model": "ks_mazda_max5_racing",
+                    "Skin": "Offline_Racing_RINALDO",
+                    "RaceNumber": 0,
+                    "ClassID": "4f42c379-9a7f-443c-957b-ddeb66a9d19e",
+                    "Ballast": 0,
+                    "SpectatorMode": 0,
+                    "Restrictor": 0,
+                    "FixedSetup": "",
+                    "ConnectAsSpectator": false,
+                    "IsPlaceHolder": false,
+                    "CSPCarFlags": {
+                        "block_keyboard": false,
+                        "block_joystick": false,
+                        "block_steering_wheel": false,
+                        "force_headlights": false,
+                        "allow_color_change": false,
+                        "allow_teleporting": false,
+                        "allow_immediate_repair": false,
+                        "allow_immediate_refuel": false
+                    }
+                },
+                "CAR_1": {
+                    "InternalUUID": "e1e7bbc4-21f7-44cd-a454-e3ac8b915555",
+                    "PitBox": 3,
+                    "Name": "",
+                    "Team": "",
+                    "GUID": "",
+                    "Model": "ks_mazda_max5_racing",
+                    "Skin": "BRYAN",
+                    "RaceNumber": 0,
+                    "ClassID": "4f42c379-9a7f-443c-957b-ddeb66a9d19e",
+                    "Ballast": 0,
+                    "SpectatorMode": 0,
+                    "Restrictor": 0,
+                    "FixedSetup": "",
+                    "ConnectAsSpectator": false,
+                    "IsPlaceHolder": false,
+                    "CSPCarFlags": {
+                        "block_keyboard": false,
+                        "block_joystick": false,
+                        "block_steering_wheel": false,
+                        "force_headlights": false,
+                        "allow_color_change": false,
+                        "allow_teleporting": false,
+                        "allow_immediate_repair": false,
+                        "allow_immediate_refuel": false
+                    }
+                }
+            },
+            "Points": {
+                "Places": [
+                    25,
+                    18
+                ],
+                "BestLap": 0,
+                "PolePosition": 0,
+                "CollisionWithDriver": 0,
+                "CollisionWithEnv": 0,
+                "CutTrack": 0,
+                "SecondRaceMultiplier": 1,
+                "RequiredRaceTimePercentage": 0
+            },
+            "AvailableCars": [
+                "ks_mazda_max5_racing"
+            ],
+            "DriverPenalties": null,
+            "TeamPenalties": null,
+            "UIColor": "#59b483"
+        }
+    ],
+    "Events": [
+    ]
+}
