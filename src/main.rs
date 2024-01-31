@@ -2,7 +2,7 @@ use anyhow::{anyhow, Context, Result};
 use axum::{
     extract::{self, Request},
     http::StatusCode,
-    middleware::{self, Next},
+    middleware::Next,
     response::{Html, IntoResponse},
     routing::{get, post},
     Json, Router,
@@ -131,8 +131,7 @@ async fn main() -> Result<()> {
         )
         .route("/eventix/oauth2/v1/callback", get(handle_oauth2_callback))
         .fallback(handler)
-        .with_state(state.clone())
-        .layer(middleware::from_fn(log_request));
+        .with_state(state.clone());
 
     let listen_address = dotenv::var("LISTEN_ADDRESS").context("LISTEN_ADDRESS not set")?;
     let listener = tokio::net::TcpListener::bind(&listen_address)
@@ -163,7 +162,7 @@ async fn full_update_task(state: Arc<State>) {
     }));
 }
 
-async fn log_request(
+async fn _log_request(
     req: Request,
     next: Next,
 ) -> Result<impl IntoResponse, (StatusCode, &'static str)> {

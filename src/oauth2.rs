@@ -72,7 +72,7 @@ pub async fn handle_oauth2_callback(
     extract::State(state): extract::State<Arc<State>>,
     extract::Query(query): extract::Query<OAuth2CallbackParameters>,
 ) -> Result<Html<&'static str>, StatusCode> {
-    info!("oauth2 callback: {:?}", query);
+    info!("oauth2 callback received");
     let oauth2_state = state.oauth2_state.lock().await;
     if &query.state != oauth2_state.csrf_token.secret() {
         return Err(StatusCode::UNAUTHORIZED);
