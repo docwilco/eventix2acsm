@@ -153,7 +153,7 @@ async fn full_update_task(state: Arc<State>) {
         loop {
             let result = full_update(state_clone.clone()).await;
             if let Err(e) = result {
-                error!("Full update failed: {}", e);
+                error!("Full update failed: {:?}", e);
             }
             sleep(Duration::from_secs(60 * 60)).await;
         }

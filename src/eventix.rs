@@ -121,7 +121,8 @@ fn ticket_to_driver<'a>(
             let mut last_name = None;
             let mut team_name = None;
             let mut steam_id = None;
-            for metadata_item in ticket["meta_data"].as_array().unwrap() {
+            for metadata_item in ticket["meta_data"].as_array().with_context(
+                || format!("Missing meta_data field for ticket: {:?}", ticket.get("guid")))? {
                 let metadata_id = metadata_item["metadata_id"].as_str().unwrap();
                 if metadata_id == metadata_ids.first_name {
                     first_name = Some(metadata_item["value"].as_str().unwrap().trim());
