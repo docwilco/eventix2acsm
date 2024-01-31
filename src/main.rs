@@ -130,6 +130,7 @@ async fn main() -> Result<()> {
             post(handle_order_paid),
         )
         .route("/eventix/oauth2/v1/callback", get(handle_oauth2_callback))
+        .route("/control/v1/full_update", post(handle_full_update))
         .fallback(handler)
         .with_state(state.clone());
 
@@ -219,3 +220,10 @@ async fn handle_order_paid(
     Ok(Html("received"))
 }
 
+#[debug_handler]
+async fn handle_full_update(
+    extract::State(state): extract::State<Arc<State>>,
+) -> Result<Html<&'static str>, StatusCode> {
+    full_update(state).await.unwrap();
+    Ok(Html("full update done"))
+}
