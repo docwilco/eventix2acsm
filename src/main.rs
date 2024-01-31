@@ -73,6 +73,9 @@ async fn full_update(state: Arc<State>) -> Result<()> {
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    // Set RUST_LOG from .env
+    let rust_log = dotenv::var("RUST_LOG").unwrap_or_else(|_| "info".to_string());
+    std::env::set_var("RUST_LOG", rust_log);
     env_logger::init();
     let state = State {
         acsm_json_file: Mutex::new(

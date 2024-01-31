@@ -131,6 +131,7 @@ async fn refresh_token(state: Arc<State>) {
         .exchange_refresh_token(&refresh_token)
         .request_async(async_http_client)
         .await;
+    drop(oauth2_state);
     match result {
         Ok(token_result) => {
             update_token_in_state(state.clone(), token_result).await;
@@ -160,8 +161,8 @@ pub async fn refresh_token_task(state: Arc<State>) {
                 }
             } else {
                 drop(oauth2_state);
-                info!("No token expiration, sleeping for 1 hour");
-                sleep(Duration::from_secs(60 * 60)).await;
+                info!("No token expiration, sleeping for 1 minute");
+                sleep(Duration::from_secs(60)).await;
             }
         }
     });
