@@ -1,5 +1,6 @@
 use anyhow::{anyhow, Context, Result};
 use itertools::Itertools;
+use log::debug;
 use std::collections::HashMap;
 
 use crate::acsm::BasicDriver;
@@ -93,22 +94,31 @@ pub async fn get_orders(
         .context("Missing hits->hits field in JSON")?
         .as_array()
         .context("hits->hits is not an array")?;
-    hits.iter()
+    let drivers = hits.iter()
         .filter_map(|hit| {
             let source = hit["_source"].as_object().unwrap();
             let status = source["status"].as_str().unwrap();
             if status != "paid" {
+                debug!("Skipping order [{}] with status: {}", source["guid"], status);
                 return None;
             }
             let tickets = source["tickets"].as_array().unwrap();
-            Some(
-                tickets
+            Some(tickets
                     .iter()
-                    .map(ticket_to_driver(ticket_id_to_car_map, metadata_ids)),
+                    .filter_map(|ticket| {
+                        match ticket_to_driver(ticket_id_to_car_map, metadata_ids)(ticket) {
+                            Ok(driver) => Some(driver),
+                            Err(e) => {
+                                debug!("Skipping ticket [{}] with error: {}", ticket["guid"], e);
+                                None
+                            }
+                        }
+                    })
             )
         })
         .flatten()
-        .collect()
+        .collect();
+    Ok(drivers)
 }
 
 fn ticket_to_driver<'a>(
