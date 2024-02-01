@@ -12,17 +12,13 @@ use itertools::Itertools;
 use log::{debug, error, info, warn};
 use serde::Deserialize;
 use std::{collections::HashMap, path::PathBuf, sync::Arc, time::Duration};
-use tokio::{
-    sync::Mutex,
-    task::JoinHandle,
-    time::sleep,
-};
+use tokio::{sync::Mutex, task::JoinHandle, time::sleep};
 
 mod acsm;
 mod eventix;
 mod oauth2;
 
-use crate::oauth2::{OAuth2State, handle_oauth2_callback, refresh_token_task, setup_oauth2_client};
+use crate::oauth2::{handle_oauth2_callback, refresh_token_task, setup_oauth2_client, OAuth2State};
 
 struct State {
     acsm_json_file: Mutex<PathBuf>,
@@ -178,7 +174,6 @@ async fn handler(extract::Json(payload): extract::Json<serde_json::Value>) -> Ht
     Html("received")
 }
 
-
 #[debug_handler]
 async fn handle_order_paid(
     extract::State(state): extract::State<Arc<State>>,
@@ -206,17 +201,25 @@ async fn handle_order_paid(
         &state.metadata_ids,
         &payload.guid,
     )
-    .await
-    .unwrap();
-    let acsm_json_file = state.acsm_json_file.lock().await;
-    acsm::update_drivers(
-        false,
-        &acsm_json_file,
-        &new_drivers,
-        &state.ignored_steam_ids,
-    )
-    .await
-    .unwrap();
+    .await;
+    if let Err(e) = new_drivers {
+        error!("Failed to get order: {:?}", e);
+        return Err(StatusCode::INTERNAL_SERVER_ERROR);
+    }
+    let new_drivers = new_drivers.unwrap();
+    if !new_drivers.is_empty() {
+        let acsm_json_file = state.acsm_json_file.lock().await;
+        acsm::update_drivers(
+            false,
+            &acsm_json_file,
+            &new_drivers,
+            &state.ignored_steam_ids,
+        )
+        .await
+        .unwrap();
+    } else {
+        warn!("No drivers found in order {}", payload.guid);
+    }
     Ok(Html("received"))
 }
 

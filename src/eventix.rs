@@ -55,6 +55,7 @@ pub async fn get_single_order(
                 .context("event_id is not a string")?
                 != event_guid
             {
+                debug!("Skipping ticket [{}] with wrong event_id", ticket["guid"]);
                 Ok(None)
             } else {
                 Ok(Some(ticket_to_driver(ticket_to_car_map, metadata_ids)(
@@ -131,8 +132,19 @@ fn ticket_to_driver<'a>(
             let mut last_name = None;
             let mut team_name = None;
             let mut steam_id = None;
-            for metadata_item in ticket["meta_data"].as_array().with_context(
-                || format!("Missing meta_data field for ticket: {:?}", ticket.get("guid")))? {
+            // So in https://api.eventix.io/3.0.0/order/:guid it's `metadata` but in
+            // https://api.eventix.io/3.0.0/statistics/event/:guid it's `meta_data`
+            let metadata_array = ticket["meta_data"].as_array();
+            let metadata_array = match metadata_array {
+                Some(metadata_array) => metadata_array,
+                None => ticket["metadata"].as_array().with_context(|| {
+                    format!(
+                        "Missing meta_data and metadata fields for ticket: {:?}",
+                        ticket.get("guid")
+                    )
+                })?,
+            };
+            for metadata_item in metadata_array {
                 let metadata_id = metadata_item["metadata_id"].as_str().unwrap();
                 if metadata_id == metadata_ids.first_name {
                     first_name = Some(metadata_item["value"].as_str().unwrap().trim());
